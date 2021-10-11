@@ -52,8 +52,12 @@ def search_products_with_boost_spec(query: str, _condition: str, _boost_strength
 
 def search():
     setup_catalog.ingest_products(test_id)
-
-    search_response = search_products_with_boost_spec(title_query, "(colorFamily: ANY(\"blue\"))", 0.5)
+    
+    # [TRY DIFFERENT BOOST CONDITIONS HERE:]
+    condition = "(colorFamily: ANY(\"blue\"))"
+    boost = 0.5
+    
+    search_response = search_products_with_boost_spec(title_query, condition, boost)
     print("---boost search response---")
     print(search_response)
 

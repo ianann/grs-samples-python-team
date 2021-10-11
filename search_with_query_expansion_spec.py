@@ -52,7 +52,11 @@ def search_products_with_query_expansion(query: str, _condition: SearchRequest.Q
 def search():
     setup_catalog.ingest_products(test_id)
 
-    search_response = search_products_with_query_expansion(title_query, SearchRequest.QueryExpansionSpec.Condition.AUTO)
+    
+    # [TRY DIFFERENT QUERY EXPANSION CONDITION HERE:] 
+    condition = SearchRequest.QueryExpansionSpec.Condition.AUTO
+
+    search_response = search_products_with_query_expansion(title_query, condition)
     print("---query expansion search results---")
     print(search_response)
 
